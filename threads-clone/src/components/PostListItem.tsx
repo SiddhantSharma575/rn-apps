@@ -56,7 +56,7 @@ export default function PostListItem({ post }: { post: Post }) {
       {/* Left column: avatar + thread line */}
       <View className="items-center mr-3.5">
         <Image
-          source={{ uri: post.user.image }}
+          source={{ uri: post.user.avatar_url }}
           style={{ width: 40, height: 40, borderRadius: 20 }}
           className="bg-neutral-700"
           contentFit="cover"
@@ -92,14 +92,7 @@ export default function PostListItem({ post }: { post: Post }) {
               numberOfLines={1}
               style={{ flexShrink: 1 }}
             >
-              {post.user.name}
-            </Text>
-            <Text
-              className="text-neutral-500 text-[13px]"
-              numberOfLines={1}
-              style={{ flexShrink: 1 }}
-            >
-              @{post.user.username}
+              {post.user.username}
             </Text>
           </View>
           {/* time + more — never shrinks */}
@@ -112,7 +105,7 @@ export default function PostListItem({ post }: { post: Post }) {
             }}
           >
             <Text className="text-neutral-500 text-[13px]">
-              {dayjs(post.createdAt).fromNow()}
+              {dayjs(post.created_at).fromNow()}
             </Text>
             <Pressable hitSlop={8}>
               <Feather name="more-horizontal" size={18} color="#737373" />
